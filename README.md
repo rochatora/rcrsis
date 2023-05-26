@@ -1,10 +1,12 @@
-# rcrsis
+# RCR System
 
-Sistema portifólio para testar conhecimentos basicos
+Sistema para testar conhecimentos basicos, inicialmente (HTML, CSS, JS, PHP).
+
+Inicialmente o objetivo deste projeto é por em pratica os estudos básicos que estão em andamento ...
 
 ## Tarefas
 
-O controle das tarefas desse projeto será realizado no GitHub
+O controle das tarefas desse projeto será realizado no GitHub/Projects
 
 ## Ícones
 
