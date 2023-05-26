@@ -4,19 +4,19 @@ if (!empty($_GET['id'])) {
     $id = $_GET['id'];
     include_once("../includes/db_connection.php");
 
-    // Consultar os Fornecedores
-    $edit_sql = "SELECT * FROM fornecedores WHERE id = '$id' ORDER BY id";
+    // Consultar os Materiais
+    $edit_sql = "SELECT * FROM material WHERE id = '$id' ORDER BY id";
 
     $edit_result = $conexao->query($edit_sql);
 
     if ($edit_result->num_rows > 0) {
         while ($edit_data = mysqli_fetch_assoc($edit_result)) {
-            $fornecedor = $edit_data['nm_fornecedor'];
-            $endereco = $edit_data['ds_endereco'];
-            $contato = $edit_data['nr_contato'];
+            $material = $edit_data['ds_material'];
+            $observacao = $edit_data['ds_observacao'];
+            $valor = $edit_data['vl_material'];
         }
     } else {
-        header("Location: fornecedor.php");
+        header("Location: material.php");
     }
 }
 ?>
@@ -38,26 +38,26 @@ if (!empty($_GET['id'])) {
 <br><br>
 
 <div class="title">
-            <h3>RCR System | Cadastro do Fornecedor</h3>
+            <h3>RCR System | Cadastro do Material</h3>
         </div>
         <br><br>
 
-    <form action="../includes/fornEdit.php" method="POST">
+    <form action="../includes/matEdit.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $id ?>">
         <div class="form-group">
-            <label for="fornecedor" class="col-form-label">Fornecedor</label>
-            <input type="text" class="form-control" id="fornecedor" name="fornecedor" value="<?php echo $fornecedor ?>" required>
+            <label for="material" class="col-form-label">Material</label>
+            <input type="text" class="form-control" id="material" name="material" value="<?php echo $material ?>" required>
         </div>
         <div class="form-group">
-            <label for="endereco" class="col-form-label">Endereço</label>
-            <input type="text" class="form-control" id="endereco" name="endereco" value="<?php echo $endereco ?>" required>
+            <label for="valor" class="col-form-label">Preço Unitário</label>
+            <input type="text" class="form-control" id="valor" name="valor" value="<?php echo $valor ?>" required>
         </div>
         <div class="form-group">
-            <label for="contato" class="col-form-label">Contato</label>
-            <input type="text" class="form-control" id="contato" name="contato" value="<?php echo $contato ?>" required>
+            <label for="observacao" class="col-form-label">Observações</label>
+            <input type="text" class="form-control" id="observacao" name="observacao" value="<?php echo $observacao ?>" required>
         </div>
         <input type="submit" class="btn btn-primary" id="update" name="update" value="Atualizar">
-        <a href="fornecedor.php"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button></a>
+        <a href="material.php"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button></a>
     </form>
 </div>
 
